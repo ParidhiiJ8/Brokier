@@ -1,0 +1,13 @@
+So here is the intro of the topic "Recommendation system" that i have learnt while building this project
+Recommendtion system works on the principle that they understand and analyse the preference of user and recommend them products according to its understanding.
+
+it is of 4 types; 
+1. popularity based system - basically recommends those things which are most popular in use at that time or in trend.
+                            - based on formula as well 
+
+2. content based system- basically similarity of the products watched by user 
+
+3. collaborative filtering system - jha pe user ke psnd ke hisab se chizo ko recommend kia jata h 
+                                - vo mnlo sare data ko ek graph pe plot kr deta h suppose we have some ratings by diff user for movies and then recommendation system plots them on the grpah and find the shorttest dis movie from the  given point so that will be the ans
+
+4. hybrid recommender system - mix of all above 3 systems
