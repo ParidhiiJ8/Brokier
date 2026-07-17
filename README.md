@@ -1,4 +1,4 @@
-<![CDATA[# 📚 BROKIER — AI-Powered Book Recommendation System
+# 📚 BROKIER — AI-Powered Book Recommendation System
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
@@ -186,5 +186,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-> _Built with ❤️ for book lovers everywhere._
-]]>
+> _Built with ❤️ for book lovers everywhere.>
