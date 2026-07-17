@@ -15,16 +15,6 @@ A premium, portfolio-worthy **Book Recommendation System** web application built
 
 ---
 
-## 📸 Screenshots
-
-> _Add screenshots here after running the application._
-
-| Home Page | Recommend Page | About Page |
-|:---------:|:--------------:|:----------:|
-| ![Home](#) | ![Recommend](#) | ![About](#) |
-
----
-
 ## 📁 Folder Structure
 
 ```
@@ -64,7 +54,7 @@ brokier/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/brokier.git
+   git clone https://github.com/ParidhiiJ8/brokier.git
    cd brokier
    ```
 
@@ -126,9 +116,6 @@ This project is open source and available under the [MIT License](LICENSE).
 **Paridhi Jain**
 
 - GitHub: [github.com/ParidhiiJ8](https://github.com/ParidhiiJ8)
-- LinkedIn: [linkedin.com/in/your-profile](https://linkedin.com/in/)
-- Email: [your-email@example.com](mailto:your-email@example.com)
-
 ---
 
 > _Built with ❤️ for book lovers everywhere._
