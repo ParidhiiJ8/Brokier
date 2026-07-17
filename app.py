@@ -1,11 +1,16 @@
 from flask import Flask, render_template, request
 import pickle
+import numpy as np
 
 # Load the popularity-based model data
 popular_df = pickle.load(open('popular.pkl', 'rb'))
 
-app = Flask(__name__)
+# Load the collaborative filtering model data
+pt = pickle.load(open('pt.pkl', 'rb'))
+book = pickle.load(open('book.pkl', 'rb'))
+similarity_score = pickle.load(open('similarity_score.pkl', 'rb'))
 
+app = Flask(__name__)
 
 @app.route('/')
 def index():
@@ -28,29 +33,31 @@ def recommend_ui():
 
 @app.route('/recommend_books', methods=['POST'])
 def recommend():
-    """
-    Handle recommendation request.
+    
+    user_input = request.form.get('user_input', '').strip()
+   
+    #index fetch
+    old_index = np.where(pt.index == user_input)[0]
+    if(old_index.size == 0):
+        error_msg = ("Unfortunately, this book does not exist in our database at this time. "
+                     "We will update this soon! Please try searching for another book to get similar choices.")
+        return render_template('recommend.html', data=[], user_input=user_input, error_message=error_msg)
+    
+    index = old_index[0]
+    similar_items = sorted(list(enumerate(similarity_score[index])),key = lambda x:x[1], reverse=True)[1:6]
 
-    TODO: Connect your recommendation model here.
-    -----------------------------------------------
-    Expected workflow:
-      1. Get user input:  user_input = request.form.get('user_input')
-      2. Call your recommendation model/function with user_input
-      3. Format results as a list of lists: [[title, author, image_url], ...]
-      4. Pass to template:  return render_template('recommend.html', data=results)
+    data =[]
+    for i in similar_items:
+        item = []
+        temp_df = book[book['Book-Title'] == pt.index[i[0]]]
+        item.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Title']))
+        item.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Author']))
+        item.extend(list(temp_df.drop_duplicates('Book-Title')['Image-URL-M']))
 
-    Example:
-      from your_model import get_recommendations
-      results = get_recommendations(user_input)
-      return render_template('recommend.html', data=results)
-    """
-    user_input = request.form.get('user_input')
+        data.append(item)
 
-    # --- PLACEHOLDER: Replace with your recommendation model call ---
-    data = []  # Your model should return: [[title, author, image_url], ...]
-    # ----------------------------------------------------------------
-
-    return render_template("recommend.html", data=data)
+    return render_template('recommend.html', data=data, user_input=user_input)
+  
 
 
 @app.route('/about')

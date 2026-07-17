@@ -13,6 +13,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---------- Mobile Navbar Toggle ---------- */
+  const navbarToggler = document.querySelector('.navbar-toggler');
+  const navbarCollapse = document.querySelector('#navbarMain');
+  if (navbarToggler && navbarCollapse) {
+    navbarToggler.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navbarCollapse.classList.toggle('show');
+      navbarToggler.setAttribute('aria-expanded',
+        navbarCollapse.classList.contains('show') ? 'true' : 'false'
+      );
+    });
+
+    // Close menu when a nav link is clicked (mobile)
+    navbarCollapse.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 992) {
+          navbarCollapse.classList.remove('show');
+          navbarToggler.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // Close menu when clicking outside (mobile)
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth < 992 &&
+          navbarCollapse.classList.contains('show') &&
+          !navbarCollapse.contains(e.target) &&
+          !navbarToggler.contains(e.target)) {
+        navbarCollapse.classList.remove('show');
+        navbarToggler.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   /* ---------- Intersection Observer: Fade-in Sections ---------- */
   const fadeEls = document.querySelectorAll('.fade-in-section');
   if (fadeEls.length) {

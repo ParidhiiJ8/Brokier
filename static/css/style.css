@@ -531,17 +531,49 @@ img { max-width: 100%; height: auto; }
 ::-webkit-scrollbar-thumb { background: var(--clr-coffee); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--clr-gold); }
 
-/* ---------- Responsive ---------- */
+/* ---------- Error State (Book Not Found) ---------- */
+.error-state {
+  text-align: center;
+  padding: 4rem 1rem;
+  animation: heroFadeUp 0.6s ease-out both;
+}
+
+/* ---------- Navbar Collapse Transition ---------- */
+.navbar-collapse {
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+}
+
 @media (max-width: 991.98px) {
-  .hero-section { min-height: 75vh; padding-top: 7rem; }
-  .book-card-img-wrapper { height: 240px; }
   .navbar-collapse {
+    display: block !important;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
     background: rgba(26, 15, 10, 0.97);
-    padding: 1rem;
+    padding: 0 1rem;
     border-radius: var(--radius-sm);
     margin-top: 0.5rem;
     border: 1px solid var(--clr-card-border);
+    transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
   }
+
+  .navbar-collapse.show {
+    max-height: 300px;
+    opacity: 1;
+    padding: 1rem;
+  }
+
+  .navbar-collapse .nav-link {
+    padding: 0.75rem 1rem !important;
+    border-bottom: 1px solid rgba(201, 169, 89, 0.08);
+  }
+
+  .navbar-collapse .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .hero-section { min-height: 75vh; padding-top: 7rem; }
+  .book-card-img-wrapper { height: 240px; }
 }
 
 @media (max-width: 575.98px) {
@@ -550,3 +582,4 @@ img { max-width: 100%; height: auto; }
   .book-card-img-wrapper { height: 220px; }
   .btn-gold { padding: 0.7rem 1.8rem; font-size: 0.9rem; }
 }
+
