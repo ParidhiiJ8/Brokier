@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BROKIER — A premium book recommendation system. Discover your next great read with personalized suggestions.">
+    <meta name="keywords" content="books, recommendations, reading, book recommendation system">
+    <title>{% block title %}BROKIER — Book Recommendation System{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <!-- Particle Canvas Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="page-wrapper">
+
+        <!-- ========== NAVBAR ========== -->
+        <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+            <div class="container">
+                <a class="navbar-brand navbar-brand-custom" href="/">
+                    <i class="bi bi-book-half me-2"></i>BROKI<span>ER</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.endpoint == 'index' %}active{% endif %}" href="/">
+                                <i class="bi bi-house-door me-1"></i>Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.endpoint == 'recommend_ui' %}active{% endif %}" href="/recommend">
+                                <i class="bi bi-stars me-1"></i>Recommend
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.endpoint == 'about' %}active{% endif %}" href="/about">
+                                <i class="bi bi-info-circle me-1"></i>About
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ========== MAIN CONTENT ========== -->
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="footer">
+            <div class="container text-center">
+                <div class="footer-social">
+                    <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="mailto:example@email.com" aria-label="Email">
+                        <i class="bi bi-envelope-fill"></i>
+                    </a>
+                </div>
+                <p>&copy; 2026 BROKIER. Crafted with <i class="bi bi-heart-fill" style="color: var(--clr-warm-orange);"></i> for book lovers.</p>
+            </div>
+        </footer>
+
+    </div><!-- /.page-wrapper -->
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>

@@ -1,55 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Recommender System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-</head>
+{% block title %}BROKIER — Discover Your Next Great Read{% endblock %}
 
-<style>
-    .text-white {
-        color: white
-    }
-</style>
+{% block content %}
 
-<body style="background-color: black;">
-    <nav class="navbar" style="background-color: brown;">
-        <a class="navbar-brand"> <b>BROKIER</b></a>
-        <ul style="list-style-type: none;" class="nav navbar-nav">
-          <li class="ul-list" ><a href="/">Home</a></li>
-            <li class="ul-list" ><a href="recommend.html">Recommend</a></li>
-            <li class="ul-list"><a>Contact</a></li>
-        </ul>
-    </nav>
+<!-- ========== HERO SECTION ========== -->
+<section class="hero-section" id="hero">
+    <div class="container position-relative">
+        <h1 class="hero-title">
+            Discover Your Next<br><span class="accent">Great Read</span>
+        </h1>
+        <p class="hero-tagline">
+            Explore the most loved books curated by readers worldwide. Let BROKIER guide you to stories that inspire, move, and captivate.
+        </p>
+        <a href="#top-books" class="btn btn-gold">
+            <i class="bi bi-chevron-double-down me-2"></i>Explore Top 50
+        </a>
+    </div>
+</section>
 
+<!-- ========== TOP 50 BOOKS ========== -->
+<section class="section-padding" id="top-books">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="text-white" style="font-size: 50; ">Top 50 Books</h1>
-            </div>
+        <div class="fade-in-section">
+            <h2 class="section-title">Top 50 Books</h2>
+            <hr class="section-divider">
+        </div>
 
-
-            {% for i in range(book_name|length)%}
-            <div class="col-md-3" style="margin-top: 40px;">
-                <div class="card" style="border: 0ch;">
-                    <div class="card-body" style="background-color: black;">
-                        <img class="card-image-top" src="{{ image[i] }}" style="justify-content: center; align-items: center;">
-                        <h3 class="text-white" >{{ book_name[i] }}</h3>
-                        <p class="text-white">{{ author[i] }}</p>
-                        <p class="text-white">{{ votes[i] }}</p>
-                        <p class="text-white">{{ rating[i] }}</p>
+        <div class="row g-4">
+            {% for i in range(book_name|length) %}
+            <div class="col-6 col-md-4 col-lg-3 fade-in-section">
+                <div class="book-card">
+                    <div class="book-card-img-wrapper">
+                        <img src="{{ image[i] }}" alt="{{ book_name[i] }}" loading="lazy">
+                    </div>
+                    <div class="book-card-body">
+                        <h5 class="book-card-title" title="{{ book_name[i] }}">{{ book_name[i] }}</h5>
+                        <p class="book-card-author">
+                            <i class="bi bi-person me-1"></i>{{ author[i] }}
+                        </p>
+                        <div class="book-card-meta">
+                            <span class="book-rating">
+                                <i class="bi bi-star-fill"></i>
+                                {{ "%.1f"|format(rating[i]) }}
+                            </span>
+                            <span class="book-votes">
+                                <i class="bi bi-people-fill me-1"></i>{{ votes[i] }}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
             {% endfor %}
-
-            
-
         </div>
     </div>
-</body>
+</section>
 
-</html>
+{% endblock %}

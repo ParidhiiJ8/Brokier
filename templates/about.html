@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block title %}BROKIER — About{% endblock %}
+
+{% block content %}
+
+<!-- ========== ABOUT HERO ========== -->
+<section class="about-hero">
+    <div class="container">
+        <h1 class="hero-title">
+            About <span class="accent">BROKIER</span>
+        </h1>
+        <p class="hero-tagline">
+            A premium book recommendation platform built to help readers discover their next favorite story.
+        </p>
+    </div>
+</section>
+
+<!-- ========== PROJECT DESCRIPTION ========== -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center fade-in-section">
+                <h2 class="section-title">The Vision</h2>
+                <hr class="section-divider">
+                <p style="color: var(--clr-text-secondary); font-size: 1.05rem; line-height: 1.9;">
+                    BROKIER is a machine learning–powered book recommendation system designed to surface the
+                    books you'll love most. By analyzing reading patterns and preferences, it delivers
+                    personalized suggestions that go beyond bestseller lists — connecting you with
+                    hidden gems and beloved classics tailored to your taste.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FEATURES ========== -->
+<section class="section-padding" style="background: rgba(44, 24, 16, 0.25);">
+    <div class="container">
+        <div class="fade-in-section">
+            <h2 class="section-title">Features</h2>
+            <hr class="section-divider">
+        </div>
+        <div class="row g-4">
+            <div class="col-sm-6 col-lg-3 fade-in-section">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-trophy"></i></div>
+                    <h5>Top 50 Books</h5>
+                    <p>Browse the most popular and highest-rated books curated from thousands of readers.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 fade-in-section">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-stars"></i></div>
+                    <h5>Smart Recommendations</h5>
+                    <p>Get personalized book suggestions powered by collaborative filtering algorithms.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 fade-in-section">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-phone"></i></div>
+                    <h5>Responsive Design</h5>
+                    <p>Enjoy a seamless experience across desktop, tablet, and mobile devices.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 fade-in-section">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-palette"></i></div>
+                    <h5>Premium Aesthetic</h5>
+                    <p>An elegant, reading-inspired interface designed for book lovers who appreciate beauty.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== TECHNOLOGIES ========== -->
+<section class="section-padding">
+    <div class="container text-center">
+        <div class="fade-in-section">
+            <h2 class="section-title">Technologies Used</h2>
+            <hr class="section-divider">
+        </div>
+        <div class="fade-in-section">
+            <span class="tech-badge"><i class="bi bi-filetype-py me-1"></i>Python</span>
+            <span class="tech-badge"><i class="bi bi-box me-1"></i>Flask</span>
+            <span class="tech-badge"><i class="bi bi-bootstrap me-1"></i>Bootstrap 5</span>
+            <span class="tech-badge"><i class="bi bi-filetype-html me-1"></i>HTML5</span>
+            <span class="tech-badge"><i class="bi bi-filetype-css me-1"></i>CSS3</span>
+            <span class="tech-badge"><i class="bi bi-braces me-1"></i>JavaScript</span>
+            <span class="tech-badge"><i class="bi bi-diagram-3 me-1"></i>Machine Learning</span>
+            <span class="tech-badge"><i class="bi bi-cpu me-1"></i>Scikit-learn</span>
+            <span class="tech-badge"><i class="bi bi-bar-chart me-1"></i>Pandas</span>
+            <span class="tech-badge"><i class="bi bi-numpy me-1"></i>NumPy</span>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SUGGESTION FORM ========== -->
+<section class="section-padding" style="background: rgba(44, 24, 16, 0.25);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="fade-in-section">
+                    <h2 class="section-title">Share Your Suggestions</h2>
+                    <hr class="section-divider">
+                    <p class="text-center mb-4" style="color: var(--clr-text-secondary);">
+                        Help us improve BROKIER! We'd love to hear your ideas and feedback.
+                    </p>
+                </div>
+                <form class="suggestion-form fade-in-section">
+                    <div class="mb-3">
+                        <label for="suggName" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="suggName" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="suggEmail" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="suggEmail" placeholder="you@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="suggCategory" class="form-label">Suggestion Category</label>
+                        <select class="form-select" id="suggCategory">
+                            <option selected disabled>Choose a category...</option>
+                            <option>UI / Design Improvements</option>
+                            <option>New Feature Request</option>
+                            <option>Recommendation Quality</option>
+                            <option>Performance / Speed</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="suggMessage" class="form-label">Your Suggestion</label>
+                        <textarea class="form-control" id="suggMessage" rows="4" placeholder="Describe your idea or feedback..."></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-gold">
+                            <i class="bi bi-send me-2"></i>Submit Suggestion
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="section-padding">
+    <div class="container">
+        <div class="fade-in-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <hr class="section-divider">
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4 text-center fade-in-section">
+                <div class="d-flex flex-column align-items-center gap-2">
+                    <a href="https://github.com/" target="_blank" rel="noopener" class="contact-link">
+                        <i class="bi bi-github"></i> GitHub Profile
+                    </a>
+                    <a href="https://linkedin.com/" target="_blank" rel="noopener" class="contact-link">
+                        <i class="bi bi-linkedin"></i> LinkedIn Profile
+                    </a>
+                    <a href="mailto:example@email.com" class="contact-link">
+                        <i class="bi bi-envelope-fill"></i> example@email.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
